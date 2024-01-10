@@ -32,13 +32,18 @@ $font-display: "Josefin Sans", sans-serif;
 /* dark mode user-agent-styles */
 /* improves punctuation in supported browsers */
 html {
-  color-scheme: dark light;
+  // color-scheme: dark light;
   hanging-punctuation: first last;
+  font-size: 62.5%;
 }
 
 /* min body height */
 body {
   min-height: 100svh;
+  font-family: $font-primary;
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 /* responsive images/videos */
@@ -66,4 +71,20 @@ p,
 li {
   max-width: var(--p-max-width, 65ch);
   text-wrap: pretty;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content auto 40vw repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(
+      6rem,
+      1fr
+    ) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] 1fr [full-end];
+
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
 }
