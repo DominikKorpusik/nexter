@@ -177,7 +177,26 @@ li {
 
 .realtors {
   background-color: #101d2c;
-  grid-column: col-start 7 / full-end; }
+  grid-column: col-start 7 / full-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem; }
+  .realtors__list {
+    display: grid;
+    grid-template-columns: auto max-content;
+    gap: 2rem;
+    justify-content: center; }
+  .realtors__img {
+    width: 10rem;
+    border-radius: 50%; }
+  .realtors__details {
+    font-size: 1.6rem;
+    align-self: center; }
+  .realtors__sold {
+    color: #aaa;
+    text-transform: uppercase; }
 
 .features {
   grid-column: center-start / center-end;
