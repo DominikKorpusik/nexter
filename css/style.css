@@ -107,7 +107,26 @@ li {
 .sidebar {
   background-color: #c69963;
   grid-column: sidebar-start / sidebar-end;
-  grid-row: 1 / -1; }
+  grid-row: 1 / -1;
+  text-align: center; }
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
+  margin-top: 2rem; }
+  .nav-btn::before, .nav-btn::after {
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    content: "";
+    display: block; }
+  .nav-btn::before {
+    transform: translateY(1.5rem); }
+  .nav-btn::after {
+    transform: translateY(3rem); }
 
 .header {
   background-color: #54483a;
