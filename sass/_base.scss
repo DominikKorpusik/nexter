@@ -1,7 +1,4 @@
 // COLOR VARIABLES
-$color-white: #fff;
-$color-black: #000;
-
 $color-primary: #c69963;
 $color-primary-dark: #b28451;
 
@@ -17,70 +14,56 @@ $color-grey-dark-2: #6d5d4b;
 $font-primary: "Nunito", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
-/* makes sizing simpler */
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-}
-
-/* remove default spacing */
-/* force styling of type through styling, rather than elements */
-* {
   margin: 0;
   padding: 0;
-  font: inherit;
+  box-sizing: inherit;
 }
 
-/* dark mode user-agent-styles */
-/* improves punctuation in supported browsers */
 html {
-  // color-scheme: dark light;
-  hanging-punctuation: first last;
-  font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
 }
 
-/* min body height */
 body {
-  min-height: 100svh;
   font-family: $font-primary;
   color: $color-grey-dark-2;
   font-weight: 300;
   line-height: 1.6;
 }
 
-/* responsive images/videos */
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}
-
-/* Improved heading in supported browsers */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/* improve readability with max-width on paragraphs and lists */
-/* prevent orphans in supported browsers */
-p,
-li {
-  max-width: var(--p-max-width, 65ch);
-  text-wrap: pretty;
-}
-
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns:
-    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
-    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-    [center-end] 1fr [full-end];
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(
+      6rem,
+      1fr
+    ) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(
+      6rem,
+      1fr
+    ) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(
+        8,
+        [col-start] minmax(min-content, 14rem) [col-end]
+      ) [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: 6rem calc(100vh - 6rem);
+  }
 }
